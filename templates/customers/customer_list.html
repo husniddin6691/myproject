@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block title %}Customers{% endblock %}
+
+
+
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="mb-0">Customers</h2>
+    <a href="{% url 'customer_create' %}" class="btn btn-success">
+        <i class="bi bi-person-plus-fill me-1"></i> Add Customer
+    </a>
+</div>
+
+<div class="card shadow border-0">
+    <div class="card-body p-0">
+        <table class="table table-hover mb-0">
+            <thead class="table-primary">
+                <tr>
+                    <th scope="col"><i class="bi bi-person-fill me-1"></i> Name</th>
+                    <th scope="col"><i class="bi bi-envelope-fill me-1"></i> Email</th>
+                    <th scope="col"><i class="bi bi-telephone-fill me-1"></i> Phone</th>
+                    <th scope="col"><i class="bi bi-gear-fill me-1"></i> Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for customer in customers %}
+                <tr>
+                    <td>{{ customer.name }}</td>
+                    <td>{{ customer.email }}</td>
+                    <td>{{ customer.phone }}</td>
+                    <td>
+                        <a href="{% url 'customer_update' customer.id %}" class="btn btn-sm btn-outline-primary me-2">
+                            <i class="bi bi-pencil-square"></i>
+                        </a>
+                        <a href="{% url 'customer_delete' customer.id %}" class="btn btn-sm btn-outline-danger">
+                            <i class="bi bi-trash-fill"></i>
+                        </a>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="4" class="text-center text-muted py-4">
+                        <i class="bi bi-emoji-frown"></i> No customers found.
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
+

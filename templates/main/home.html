@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+<h2 class="mb-4">Welcome back, {{ user.first_name|default:user.username }}!</h2>
+<div class="row g-4">
+    <div class="col-md-6 col-lg-3">
+        <div class="card text-bg-primary shadow-sm">
+            <div class="card-body d-flex justify-content-between align-items-center">
+                <div>
+                    <h5 class="card-title">Customers</h5>
+                    <h3 class="card-text">128</h3>
+                </div>
+                <i class="bi bi-people-fill fs-1"></i>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-lg-3">
+        <div class="card text-bg-success shadow-sm">
+            <div class="card-body d-flex justify-content-between align-items-center">
+                <div>
+                    <h5 class="card-title">Notes</h5>
+                    <h3 class="card-text">52</h3>
+                </div>
+                <i class="bi bi-journal-text fs-1"></i>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-lg-3">
+        <div class="card text-bg-warning shadow-sm">
+            <div class="card-body d-flex justify-content-between align-items-center">
+                <div>
+                    <h5 class="card-title">Users</h5>
+                    <h3 class="card-text">16</h3>
+                </div>
+                <i class="bi bi-person-circle fs-1"></i>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-lg-3">
+        <div class="card text-bg-danger shadow-sm">
+            <div class="card-body d-flex justify-content-between align-items-center">
+                <div>
+                    <h5 class="card-title">Reports</h5>
+                    <h3 class="card-text">7</h3>
+                </div>
+                <i class="bi bi-graph-up-arrow fs-1"></i>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Delete Customer{% endblock %}
+
+{% block content %}
+<div class="card shadow-sm">
+    <div class="card-body">
+        <h5 class="mb-3">❗ Are you sure you want to delete this customer?</h5>
+        <p><strong>{{ customer.name }}</strong> ({{ customer.email }})</p>
+        <form method="post">
+            {% csrf_token %}
+            <a href="{% url 'customer_list' %}" class="btn btn-secondary">Cancel</a>
+            <button type="submit" class="btn btn-danger">Delete</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
